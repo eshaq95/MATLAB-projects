@@ -1,42 +1,42 @@
 # MATLAB Projects
 
-This repository contains MATLAB codes developed for various Mechanical Engineering courses at the University of Edinburgh. These projects showcase practical applications of MATLAB in engineering problem-solving and analysis.
+MATLAB code from Mechanical Engineering coursework at the University of Edinburgh: design optimisation and numerical methods for engineering problems.
 
-## 1. Turbine Blade Dimension Optimization
+## 1. Turbine blade optimisation
 
-**File:** `TurbineOptimisation.m`
+**Folder:** `1. Bladeoptimization` · **Main file:** `TurbineOptimisation.m`
 
-This MATLAB code was developed for the Sustainable Energy Group Design Project in Mechanical Engineering Design 3. It focuses on the optimization of aerodynamic blade dimensions for turbines.
+Developed for the Sustainable Energy Group Design Project (Mechanical Engineering Design 3).
 
-### Key Features:
-- Generates blade twist and chord distribution
-- Selects optimum aerofoil profiles for different blade sections
-- Performs efficient and accurate analysis of blade dimensions for required power generation
-- Results were validated through 3D printing and lab testing with positive outcomes
+- Takes the design inputs — maximum radius, wind speed, rotor speed, number of blades and blade elements, generator efficiency, stall angle, maximum lift coefficient and lift-to-drag ratio
+- Computes the optimal angle of attack, chord length and aerofoil profile for each blade element, giving the blade's twist and chord distribution
+- Returns the power coefficient and net power output of the turbine
+- The design was validated by 3D printing the blade and testing the prototype in the lab, where it generated measurable electrical output
 
-### Example Output:
-![Turbine Optimization Result](https://user-images.githubusercontent.com/72145252/130123288-71187c26-6fdb-4ff8-bd3b-3c9f8d552aec.png)
+![Turbine optimisation result](https://user-images.githubusercontent.com/72145252/130123288-71187c26-6fdb-4ff8-bd3b-3c9f8d552aec.png)
 
-## 2. Numerical Solutions for Partial Differential Equations
+## 2. Numerical solution of the heat equation
 
-This project focuses on implementing numerical solutions for heat and wave equations using MATLAB.
+**Folder:** `2. Numerical_solution_PDE`
 
-### Key Components:
-- `analytical_solution.m`: Analytical solution to the PDE
-- `ETM.m`: Explicit Time-Marching method implementation
-- `FTCS.m`: Forward-Time Centered-Space method for finite difference solutions
-- `partc.m`: Additional analysis or solution component
-- `REPORT.docx`: Detailed project report including analytical calculations
+Solves the one-dimensional heat conduction equation, u<sub>t</sub> = κ u<sub>xx</sub>, on 0 ≤ x ≤ π/2 with initial condition u(x, 0) = cos x and time-dependent Dirichlet boundary conditions — both analytically and numerically — and compares the two.
 
-### Visualizations:
-![Analytical Surface 1](https://user-images.githubusercontent.com/72145252/131263690-14020626-977c-4ce8-927c-c04951e0d563.png)
-![Analytical Surface 2](https://user-images.githubusercontent.com/72145252/131263692-86625846-9b90-4333-ae88-4b94ca4aff96.png)
+| File | Purpose |
+| --- | --- |
+| `FTCS.m` | One forward-time, centred-space (FTCS) finite-difference step |
+| `ETM.m` | Explicit time-marching loop built on the FTCS step |
+| `analytical_solution.m` | Truncated series form of the analytical solution |
+| `partc.m` | Runs the numerical solver and plots the numerical solution, the analytical solution and their difference (error surface and contours) |
+| `b2.m` | Surface and contour plots of the analytical solution |
+| `REPORT.docx` | Analytical derivation using the Laplace transform, plus discussion of the results |
+
+The time step is set at the FTCS stability limit (r = κΔt/Δx² = 0.5).
+
+![Analytical surface 1](https://user-images.githubusercontent.com/72145252/131263690-14020626-977c-4ce8-927c-c04951e0d563.png)
+![Analytical surface 2](https://user-images.githubusercontent.com/72145252/131263692-86625846-9b90-4333-ae88-4b94ca4aff96.png)
 
 ## Usage
 
-Each project folder contains the necessary MATLAB scripts and additional documentation. To run the scripts:
-
-1. Ensure you have MATLAB installed on your system.
-2. Navigate to the desired project folder.
-3. Open and run the main script file (e.g., `TurbineOptimisation.m` for the turbine project).
-4. Refer to individual script comments or accompanying documentation for specific usage instructions.
+1. Open the project folder in MATLAB.
+2. Run the main script: `TurbineOptimisation.m` for the turbine project, or `partc.m` for the heat equation.
+3. See the comments in each script and `REPORT.docx` for details.
